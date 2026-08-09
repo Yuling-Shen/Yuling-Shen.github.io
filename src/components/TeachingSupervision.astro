@@ -1,0 +1,28 @@
+---
+import type { Teaching } from "../data/schema";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  teaching: Teaching;
+}
+
+const { teaching } = Astro.props;
+---
+
+<section id="teaching-supervision" aria-labelledby="teaching-supervision-title">
+  <SectionHeading title="Teaching and Supervision" id="teaching-supervision-title" />
+  <div class="two-column-details">
+    <div>
+      <h3>Courses</h3>
+      <ul class="compact-list">
+        {teaching.courses.map((course) => <li class="course">{course}</li>)}
+      </ul>
+    </div>
+    <div>
+      <h3>Supervision</h3>
+      <ul class="compact-list">
+        {teaching.supervision.map((item) => <li class="supervision-item">{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

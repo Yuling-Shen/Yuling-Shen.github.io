@@ -1,0 +1,28 @@
+---
+interface DatedItem {
+  date: string;
+  title: string;
+  detail?: string;
+  url?: string;
+}
+
+interface Props {
+  items: DatedItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="dated-list">
+  {
+    items.map((item) => (
+      <li class="dated-item">
+        <span class="dated-date">{item.date}</span>
+        <div>
+          {item.url ? <a href={item.url}>{item.title}</a> : <span>{item.title}</span>}
+          {item.detail && <span class="dated-detail">{item.detail}</span>}
+        </div>
+      </li>
+    ))
+  }
+</ul>

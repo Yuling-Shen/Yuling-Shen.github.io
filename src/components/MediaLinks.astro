@@ -1,0 +1,25 @@
+---
+import type { Recognition } from "../data/schema";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  media: Recognition["media"];
+}
+
+const { media } = Astro.props;
+---
+
+<section id="media" aria-labelledby="media-title">
+  <SectionHeading title="Media" id="media-title" />
+  <p>
+    {media.lead}{" "}
+    {
+      media.links.map((item, index) => (
+        <>
+          {index > 0 && (index === media.links.length - 1 ? ", and " : ", ")}
+          <a href={item.url}>{item.label}</a>
+        </>
+      ))
+    }.
+  </p>
+</section>

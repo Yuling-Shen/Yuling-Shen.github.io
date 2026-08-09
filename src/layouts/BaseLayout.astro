@@ -1,0 +1,64 @@
+---
+import globalStyles from "../styles/global.css?url";
+import type { Profile } from "../data/schema";
+
+interface Props {
+  profile: Profile;
+}
+
+const { profile } = Astro.props;
+const title = `${profile.name} | Academic Homepage`;
+const description = `${profile.name} is an ${profile.role} at ${profile.institution} working on data-driven dynamics, control, and structural design.`;
+const canonical = new URL(
+  Astro.url.pathname,
+  Astro.site || Astro.url.origin,
+);
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.role,
+  email: "mailto:" + profile.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: profile.locality,
+    addressRegion: profile.region,
+    addressCountry: profile.country,
+  },
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: profile.institution,
+  },
+  sameAs: [profile.scholarUrl],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#155B82" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="stylesheet" href={globalStyles} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <title>{title}</title>
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(jsonLd)}
+    />
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="reading-column">
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>

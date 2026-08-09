@@ -1,0 +1,49 @@
+{
+  "sourceDate": "2026-08-09",
+  "awards": [
+    {
+      "date": "2025",
+      "title": "Nomination Award for Young Scientists, Jiangsu Society of Aeronautics and Astronautics"
+    },
+    {
+      "date": "2025",
+      "title": "First Prize of Teaching Innovation Competition, Soochow University"
+    },
+    {
+      "date": "2024",
+      "title": "2022–2023 Suzhou Outstanding Academic Paper in Natural Sciences"
+    }
+  ],
+  "service": [
+    {
+      "date": "2025–2027",
+      "title": "Young Editorial Board Member, Advances in Astronautics",
+      "url": "https://link.springer.com/journal/42423"
+    },
+    {
+      "date": "2025–2030",
+      "title": "Council Member, Jiangsu Society of Aeronautics and Astronautics"
+    }
+  ],
+  "media": {
+    "lead": "Research on growable artificial-gravity space habitats was covered by",
+    "links": [
+      {
+        "label": "The Wall Street Journal",
+        "url": "https://www.wsj.com/articles/space-village-one-a-vision-for-life-beyond-earth-1526567016"
+      },
+      {
+        "label": "Texas A&M Engineering",
+        "url": "https://engineering.tamu.edu/news/2019/02/building-a-growable-habitat-for-sustainable-life-in-space.html"
+      },
+      {
+        "label": "Voice of America",
+        "url": "https://www.voanews.com/a/science-health_futuristic-space-habitat-solves-problems-human-space-travel/6172519.html"
+      },
+      {
+        "label": "Phys.org",
+        "url": "https://phys.org/news/2020-09-space-habitat-artificial-gravity-enlarged.html"
+      }
+    ]
+  }
+}

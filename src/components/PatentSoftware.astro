@@ -1,0 +1,30 @@
+---
+import type { Patents } from "../data/schema";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  patents: Patents;
+}
+
+const { patents } = Astro.props;
+---
+
+<section id="patents-software" aria-labelledby="patents-software-title">
+  <SectionHeading title="Patents and Research Software" id="patents-software-title" />
+  <ol class="patent-list">
+    {
+      patents.selected.map((patent) => (
+        <li class="patent">
+          <span class="supporting">{patent.year}</span>
+          <div>
+            <em>{patent.title}</em>.
+            <span class="supporting"> &middot; {patent.number} &middot; {patent.role}</span>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+  <p class="software-line">
+    <a href={patents.software.url}>{patents.software.name}</a>: {patents.software.description}
+  </p>
+</section>

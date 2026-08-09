@@ -1,0 +1,66 @@
+---
+import {
+  publicationCategoryOrder,
+  type Publication,
+} from "../data/schema";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  publications: Publication[];
+  scholarUrl: string;
+}
+
+const { publications, scholarUrl } = Astro.props;
+const publicationGroups = publicationCategoryOrder.map((category) => ({
+  category,
+  id: `publication-group-${category.toLowerCase().replace(/\s+/g, "-")}`,
+  publications: publications.filter(
+    (publication) => publication.category === category,
+  ),
+}));
+---
+
+<section id="publications" aria-labelledby="publications-title">
+  <SectionHeading title="Publications" id="publications-title" />
+  <div class="publication-groups">
+    {
+      publicationGroups.map((group) => (
+        <section class="publication-group" aria-labelledby={group.id}>
+          <h3 id={group.id}>{group.category}</h3>
+          <ol class="publication-list">
+            {group.publications.map((publication) => (
+              <li class="publication" data-publication-id={publication.id}>
+                <span class="publication-year">{publication.year}</span>
+                <div>
+                  {publication.doi ? (
+                    <a class="publication-title" href={publication.doi}>
+                      {publication.title}
+                    </a>
+                  ) : (
+                    <span class="publication-title">{publication.title}</span>
+                  )}
+                  <p class="publication-authors">
+                    {publication.authors.map((author, index) => (
+                      <>
+                        {index > 0 && ", "}
+                        <span class:list={{ "profile-author": author.profile }}>
+                          {author.name}
+                        </span>
+                      </>
+                    ))}
+                  </p>
+                  <p class="publication-venue">
+                    <em>{publication.venue}</em>, {publication.details}.
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))
+    }
+  </div>
+  <p class="section-link">
+    <a href={scholarUrl}>View all publications on Google Scholar</a>
+  </p>
+</section>

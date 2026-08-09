@@ -1,0 +1,63 @@
+{
+  "sourceDate": "2026-08-09",
+  "name": "Yuling Shen",
+  "initials": "YS",
+  "role": "Associate Professor",
+  "appointmentDates": "2023–present",
+  "unit": "School of Future Science and Engineering",
+  "institution": "Soochow University",
+  "locality": "Suzhou",
+  "region": "Jiangsu",
+  "country": "China",
+  "email": "ylshen07@suda.edu.cn",
+  "scholarUrl": "https://scholar.google.com/citations?hl=en&user=06JHe-sAAAAJ&view_op=list_works&sortby=pubdate",
+  "advisors": [
+    {
+      "name": "Manoranjan Majji",
+      "url": "https://engineering.tamu.edu/aerospace/profiles/majji-manoranjan.html"
+    },
+    {
+      "name": "Robert E. Skelton",
+      "url": "https://bobskelton.github.io/"
+    }
+  ],
+  "lastUpdated": "August 2026",
+  "education": [
+    {
+      "degree": "PhD",
+      "field": "Aerospace Engineering",
+      "institution": "Texas A&M University",
+      "completed": "December 2021"
+    },
+    {
+      "degree": "M.S.",
+      "field": "Mechanical Engineering",
+      "institution": "Northwestern University",
+      "completed": "December 2016"
+    },
+    {
+      "degree": "B.S.",
+      "field": "Mechanical Engineering",
+      "institution": "University of California San Diego",
+      "completed": "June 2015"
+    }
+  ],
+  "researchAreas": [
+    {
+      "title": "Dynamics Modeling",
+      "description": "Data-based system identification and reduced-order models for tensegrity and morphing structures."
+    },
+    {
+      "title": "Dynamics Simulation",
+      "description": "Finite-word-length and resource-aware simulation of high-dimensional dynamical systems."
+    },
+    {
+      "title": "Dynamics Control",
+      "description": "Reference tracking, covariance control, sensor and actuator selection, and fault detection."
+    },
+    {
+      "title": "Structural Design",
+      "description": "Tensegrity, deployable, scissor, and morphing structures for space and civil applications."
+    }
+  ]
+}

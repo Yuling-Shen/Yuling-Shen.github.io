@@ -1,0 +1,26 @@
+---
+import type { Profile } from "../data/schema";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  summary: string;
+  areas: Profile["researchAreas"];
+}
+
+const { summary, areas } = Astro.props;
+---
+
+<section id="research-areas" aria-labelledby="research-areas-title">
+  <SectionHeading title="Research Areas" id="research-areas-title" />
+  <p>{summary}</p>
+  <div class="research-area-list">
+    {
+      areas.map((area) => (
+        <article class="research-area">
+          <h3>{area.title}</h3>
+          <p>{area.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

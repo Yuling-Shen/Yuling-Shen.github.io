@@ -1,0 +1,62 @@
+---
+import DatedList from "../components/DatedList.astro";
+import MediaLinks from "../components/MediaLinks.astro";
+import PatentSoftware from "../components/PatentSoftware.astro";
+import ProfileHeader from "../components/ProfileHeader.astro";
+import PublicationList from "../components/PublicationList.astro";
+import ResearchAreas from "../components/ResearchAreas.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import TeachingSupervision from "../components/TeachingSupervision.astro";
+import { siteData } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout profile={siteData.profile}>
+  <ProfileHeader profile={siteData.profile} />
+  <main>
+    <ResearchAreas
+      summary={siteData.researchSummary}
+      areas={siteData.profile.researchAreas}
+    />
+    <PublicationList
+      publications={siteData.publications}
+      scholarUrl={siteData.profile.scholarUrl}
+    />
+    <section id="funding" aria-labelledby="funding-title">
+      <SectionHeading title="Research Funding and Projects" id="funding-title" />
+      <DatedList
+        items={siteData.funding.map((item) => ({
+          date: item.dates,
+          title: item.programme,
+          detail: item.role,
+        }))}
+      />
+    </section>
+    <PatentSoftware patents={siteData.patents} />
+    <TeachingSupervision teaching={siteData.teaching} />
+    <section id="awards-service" aria-labelledby="awards-service-title">
+      <SectionHeading title="Awards and Academic Service" id="awards-service-title" />
+      <h3>Recent Awards</h3>
+      <DatedList
+        items={siteData.recognition.awards.map((item) => ({
+          date: item.date,
+          title: item.title,
+        }))}
+      />
+      <h3 class="subsection-heading">Academic Service</h3>
+      <DatedList
+        items={siteData.recognition.service.map((item) => ({
+          date: item.date,
+          title: item.title,
+          url: item.url,
+        }))}
+      />
+    </section>
+    <MediaLinks media={siteData.recognition.media} />
+  </main>
+  <SiteFooter
+    name={siteData.profile.name}
+    lastUpdated={siteData.profile.lastUpdated}
+  />
+</BaseLayout>

@@ -1,0 +1,189 @@
+[
+  {
+    "id": "chen-2024-linearized-dynamics",
+    "category": "Dynamics Modeling",
+    "year": 2024,
+    "title": "Model-Based and Markov Data-Based Linearized Tensegrity Dynamics and Analysis of Morphing Airfoils",
+    "authors": [
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Yuling Shen", "profile": true },
+      { "name": "Robert E. Skelton", "profile": false }
+    ],
+    "venue": "AIAA SCITECH 2024 Forum",
+    "details": "AIAA Paper 2024-2347",
+    "doi": "https://doi.org/10.2514/6.2024-2347"
+  },
+  {
+    "id": "shen-2024-markov-identification",
+    "category": "Dynamics Modeling",
+    "year": 2024,
+    "title": "A Markov data-based approach to system identification and output error covariance analysis for tensegrity structures",
+    "authors": [
+      { "name": "Yuling Shen", "profile": true },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Robert E. Skelton", "profile": false }
+    ],
+    "venue": "Nonlinear Dynamics",
+    "details": "112(9), 7215–7231",
+    "doi": "https://doi.org/10.1007/s11071-024-09443-9"
+  },
+  {
+    "id": "shen-2023-qmarkov-identification",
+    "category": "Dynamics Modeling",
+    "year": 2023,
+    "title": "An Efficient q-Markov Covariance Equivalent Realization Approach to System Identification",
+    "authors": [
+      { "name": "Yuling Shen", "profile": true },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Manoranjan Majji", "profile": false },
+      { "name": "Robert E. Skelton", "profile": false }
+    ],
+    "venue": "IFAC-PapersOnLine",
+    "details": "22nd IFAC World Congress, 56(2), 108–113",
+    "doi": "https://doi.org/10.1016/j.ifacol.2023.10.1554"
+  },
+  {
+    "id": "shen-2023-qmarkov-unstable",
+    "category": "Dynamics Modeling",
+    "year": 2023,
+    "title": "Q-Markov Covariance equivalent realizations for unstable and marginally stable systems",
+    "authors": [
+      { "name": "Yuling Shen", "profile": true },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Manoranjan Majji", "profile": false },
+      { "name": "Robert E. Skelton", "profile": false }
+    ],
+    "venue": "Mechanical Systems and Signal Processing",
+    "details": "196, 110343",
+    "doi": "https://doi.org/10.1016/j.ymssp.2023.110343"
+  },
+  {
+    "id": "shi-2025-markov-parameters",
+    "category": "Dynamics Simulation",
+    "year": 2025,
+    "title": "Markov Parameters Generation for Data-based Modeling of Tensegrity Robots Considering Finite Word-Length Effects",
+    "authors": [
+      { "name": "Linxuan Shi", "profile": false },
+      { "name": "Weizhi Cao", "profile": false },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Yuling Shen", "profile": true }
+    ],
+    "venue": "2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+    "details": "3831–3837",
+    "doi": "https://doi.org/10.1109/IROS60139.2025.11246139"
+  },
+  {
+    "id": "shen-2024-finite-word-length",
+    "category": "Dynamics Simulation",
+    "year": 2024,
+    "title": "Finite word-length optimal simulation for high-dimensional dynamical systems: Examples of tensegrity structures",
+    "authors": [
+      { "name": "Yuling Shen", "profile": true },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Robert E. Skelton", "profile": false }
+    ],
+    "venue": "Mechanical Systems and Signal Processing",
+    "details": "215, 111415",
+    "doi": "https://doi.org/10.1016/j.ymssp.2024.111415"
+  },
+  {
+    "id": "chen-2026-resource-efficient",
+    "category": "Dynamics Control",
+    "year": 2026,
+    "title": "Resource-efficient covariance control with optimal sensor and actuator selection for tensegrity structures",
+    "authors": [
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Yuling Shen", "profile": true }
+    ],
+    "venue": "Engineering Structures",
+    "details": "362, 122908",
+    "doi": "https://doi.org/10.1016/j.engstruct.2026.122908"
+  },
+  {
+    "id": "shen-2024-sensor-fault",
+    "category": "Dynamics Control",
+    "year": 2024,
+    "title": "Sensor Fault Detection Approach to Tensegrity Structures Using Markov Parameters",
+    "authors": [
+      { "name": "Yuling Shen", "profile": true },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Ed Habtour", "profile": false },
+      { "name": "Robert E. Skelton", "profile": false }
+    ],
+    "venue": "Earth and Space 2024",
+    "details": "584–593",
+    "doi": "https://doi.org/10.1061/9780784485736.054"
+  },
+  {
+    "id": "shen-2023-reference-tracking",
+    "category": "Dynamics Control",
+    "year": 2023,
+    "title": "Markov data-based reference tracking control to tensegrity morphing airfoils",
+    "authors": [
+      { "name": "Yuling Shen", "profile": true },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Robert E. Skelton", "profile": false }
+    ],
+    "venue": "Engineering Structures",
+    "details": "291, 116430",
+    "doi": "https://doi.org/10.1016/j.engstruct.2023.116430"
+  },
+  {
+    "id": "su-2026-inverse-kinematic",
+    "category": "Structural Design",
+    "year": 2026,
+    "title": "Inverse-Kinematic Design of Deployable Scissor Mechanisms along Arbitrary Curves",
+    "authors": [
+      { "name": "Liang Su", "profile": false },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Yuling Shen", "profile": true }
+    ],
+    "venue": "77th International Astronautical Congress (IAC 2026)",
+    "details": "Antalya, Türkiye; Accepted for oral presentation; Paper ID IAC-26,C2,2,9,x111788"
+  },
+  {
+    "id": "su-2025-hoberman-topology",
+    "category": "Structural Design",
+    "year": 2025,
+    "title": "Parametric Studies of Hoberman Topology for the Design of Scalable and Deployable Structures",
+    "authors": [
+      { "name": "Liang Su", "profile": false },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Yuling Shen", "profile": true }
+    ],
+    "venue": "76th International Astronautical Congress (IAC 2025)",
+    "details": "IAF Materials and Structures Symposium, Sydney, Australia, 143–152",
+    "doi": "https://doi.org/10.52202/083088-0016"
+  },
+  {
+    "id": "zhang-2025-lightweight",
+    "category": "Structural Design",
+    "year": 2025,
+    "title": "Lightweight designs of simply supported tensegrity structures and their applications to bridges",
+    "authors": [
+      { "name": "Guangtao Zhang", "profile": false },
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Daihai Chen", "profile": false },
+      { "name": "Yuling Shen", "profile": true }
+    ],
+    "venue": "Composite Structures",
+    "details": "357, 118923",
+    "doi": "https://doi.org/10.1016/j.compstruct.2025.118923"
+  },
+  {
+    "id": "chen-2018-space-habitat",
+    "category": "Structural Design",
+    "year": 2018,
+    "title": "Energy analysis of growth adaptable artificial gravity space habitat",
+    "authors": [
+      { "name": "Muhao Chen", "profile": false },
+      { "name": "Yuling Shen", "profile": true },
+      { "name": "Raman Goyal", "profile": false },
+      { "name": "Manoranjan Majji", "profile": false },
+      { "name": "Robert E. Skelton", "profile": false }
+    ],
+    "venue": "2018 AIAA SPACE and Astronautics Forum and Exposition",
+    "details": "AIAA Paper 2018-5109",
+    "doi": "https://doi.org/10.2514/6.2018-5109"
+  }
+]

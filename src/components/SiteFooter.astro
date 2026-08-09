@@ -1,0 +1,13 @@
+---
+interface Props {
+  name: string;
+  lastUpdated: string;
+}
+
+const { name, lastUpdated } = Astro.props;
+---
+
+<footer>
+  <span>&copy; {new Date().getFullYear()} {name}</span>
+  <span>Last updated: {lastUpdated}</span>
+</footer>

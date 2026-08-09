@@ -1,0 +1,31 @@
+{
+  "sourceDate": "2026-08-09",
+  "selected": [
+    {
+      "id": "zl2026100679354",
+      "year": 2026,
+      "title": "A spatial swing-angle measurement system, method and device for suspended low-gravity simulation",
+      "number": "ZL2026100679354",
+      "role": "First inventor"
+    },
+    {
+      "id": "zl2025120523857",
+      "year": 2026,
+      "title": "A Hoberman ring and its design method and applications",
+      "number": "ZL2025120523857",
+      "role": "First inventor"
+    },
+    {
+      "id": "zl2026100679797",
+      "year": 2026,
+      "title": "A control method, system and electronic device for suspended low-gravity simulation",
+      "number": "ZL2026100679797",
+      "role": "First inventor"
+    }
+  ],
+  "software": {
+    "name": "TsgDMC",
+    "description": "Open-source toolbox for data-based modelling and control of deployable tensegrity structures.",
+    "url": "https://github.com/Muhao-Chen/Tensegrity_Data-based_Modeling_and_Control_TsgDMC"
+  }
+}
