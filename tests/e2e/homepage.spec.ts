@@ -12,7 +12,9 @@ test("homepage is accessible and complete at its project viewport", async ({ pag
   await expect(page.locator("#publications .publication-group")).toHaveCount(4);
   await expect(page.locator("#publications .publication")).toHaveCount(13);
   await expect(page.locator("#funding .dated-item")).toHaveCount(4);
-  await expect(page.getByText("YS", { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("img", { name: "Portrait of Yuling Shen", exact: true }),
+  ).toBeVisible();
   const results = await new AxeBuilder({ page }).analyze();
   expect(results.violations).toEqual([]);
 });
