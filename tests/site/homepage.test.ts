@@ -35,7 +35,6 @@ describe("built homepage", () => {
     expect($("a[href^=\"mailto:\"]").attr("href")).toBe(
       "mailto:ylshen07@suda.edu.cn",
     );
-    expect($(".profile-initials").text().trim()).toBe("YS");
     expect($(".advisor-line > a").map((_, element) => ({
       name: $(element).text(),
       url: $(element).attr("href"),
@@ -49,6 +48,18 @@ describe("built homepage", () => {
         url: "https://bobskelton.github.io/",
       },
     ]);
+  });
+
+  it("renders the approved profile portrait", () => {
+    const portrait = $(".profile-portrait img");
+
+    expect(portrait).toHaveLength(1);
+    expect(portrait.attr("src")).toBe(`${expectedBase}images/profile.jpg`);
+    expect(portrait.attr("alt")).toBe(`Portrait of ${siteData.profile.name}`);
+    expect(portrait.attr("width")).toBe("112");
+    expect(portrait.attr("height")).toBe("136");
+    expect($(".profile-initials")).toHaveLength(0);
+    expect(() => readFileSync("dist/images/profile.jpg")).not.toThrow();
   });
 
   it("does not render navigation or excluded contact details", () => {

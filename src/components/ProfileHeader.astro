@@ -1,6 +1,4 @@
 ---
-import { existsSync } from "node:fs";
-import { fileURLToPath } from "node:url";
 import type { Profile } from "../data/schema";
 import { withBase } from "../lib/urls";
 
@@ -9,28 +7,16 @@ interface Props {
 }
 
 const { profile } = Astro.props;
-const photoFile = fileURLToPath(
-  new URL("../../public/images/profile.jpg", import.meta.url),
-);
-const hasPhoto = existsSync(photoFile);
 ---
 
 <header class="profile-header">
   <div class="profile-portrait">
-    {
-      hasPhoto ? (
-        <img
-          src={withBase("images/profile.jpg")}
-          alt={`Portrait of ${profile.name}`}
-          width="112"
-          height="136"
-        />
-      ) : (
-        <div class="profile-initials" aria-hidden="true">
-          {profile.initials}
-        </div>
-      )
-    }
+    <img
+      src={withBase("images/profile.jpg")}
+      alt={`Portrait of ${profile.name}`}
+      width="112"
+      height="136"
+    />
   </div>
   <div class="profile-copy">
     <h1>{profile.name}</h1>
