@@ -13,12 +13,12 @@
   "scholarUrl": "https://scholar.google.com/citations?hl=en&user=06JHe-sAAAAJ&view_op=list_works&sortby=pubdate",
   "advisors": [
     {
-      "name": "Manoranjan Majji",
-      "url": "https://engineering.tamu.edu/aerospace/profiles/majji-manoranjan.html"
-    },
-    {
       "name": "Robert E. Skelton",
       "url": "https://bobskelton.github.io/"
+    },
+    {
+      "name": "Manoranjan Majji",
+      "url": "https://engineering.tamu.edu/aerospace/profiles/majji-manoranjan.html"
     }
   ],
   "lastUpdated": "August 2026",

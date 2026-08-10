@@ -40,12 +40,12 @@ describe("built homepage", () => {
       url: $(element).attr("href"),
     })).get()).toEqual([
       {
-        name: "Manoranjan Majji",
-        url: "https://engineering.tamu.edu/aerospace/profiles/majji-manoranjan.html",
-      },
-      {
         name: "Robert E. Skelton",
         url: "https://bobskelton.github.io/",
+      },
+      {
+        name: "Manoranjan Majji",
+        url: "https://engineering.tamu.edu/aerospace/profiles/majji-manoranjan.html",
       },
     ]);
   });
@@ -144,9 +144,41 @@ describe("built homepage", () => {
     expect($("#funding .dated-item")).toHaveLength(4);
     expect($("#funding").text()).toContain("PI");
     expect($("#funding").text()).not.toMatch(/CNY|\d{3},\d{3}/);
-    expect($("#patents-software .patent")).toHaveLength(3);
-    expect($("#patents-software").text()).not.toContain(
+  });
+
+  it("renders five patents in two compact year groups", () => {
+    const groups = $("#patents-software .patent-group");
+    expect(groups).toHaveLength(2);
+    expect(groups.map((_, element) => $(element).find("h3").text()).get()).toEqual([
+      "2026",
+      "2025",
+    ]);
+    expect(groups.map((_, element) => $(element).attr("aria-labelledby")).get())
+      .toEqual(["patent-year-2026", "patent-year-2025"]);
+    expect(groups.map((_, element) => $(element).find(".patent").length).get())
+      .toEqual([3, 2]);
+
+    expect($("#patents-software .patent").map((_, element) =>
+      $(element).attr("data-patent-id"),
+    ).get()).toEqual(siteData.patents.selected.map(({ id }) => id));
+
+    const patentText = $("#patents-software").text();
+    for (const patent of siteData.patents.selected) {
+      expect(patentText).toContain(patent.title);
+      expect(patentText).toContain(patent.number);
+    }
+    expect($("#patents-software .patent").filter((_, element) =>
+      $(element).text().includes("First inventor"),
+    )).toHaveLength(4);
+    expect($("#patents-software .patent").filter((_, element) =>
+      $(element).text().includes("Second inventor"),
+    )).toHaveLength(1);
+    expect(patentText).not.toContain(
       "Five granted Chinese invention patents; first inventor on four and second inventor on one.",
+    );
+    expect($("#patents-software .software-line a").text()).toBe("TsgDMC");
+    expect($("#patents-software .software-line a").attr("href")).toBe(
+      siteData.patents.software.url,
     );
   });
 

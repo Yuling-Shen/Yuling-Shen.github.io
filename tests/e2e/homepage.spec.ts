@@ -12,6 +12,16 @@ test("homepage is accessible and complete at its project viewport", async ({ pag
   await expect(page.locator("#publications .publication-group")).toHaveCount(4);
   await expect(page.locator("#publications .publication")).toHaveCount(13);
   await expect(page.locator("#funding .dated-item")).toHaveCount(4);
+  await expect(page.locator("#patents-software .patent-group")).toHaveCount(2);
+  await expect(page.locator("#patents-software .patent-group > h3")).toHaveText([
+    "2026",
+    "2025",
+  ]);
+  await expect(page.locator("#patents-software .patent")).toHaveCount(5);
+  await expect(page.locator(".advisor-line > a")).toHaveText([
+    "Robert E. Skelton",
+    "Manoranjan Majji",
+  ]);
   await expect(
     page.getByRole("img", { name: "Portrait of Yuling Shen", exact: true }),
   ).toBeVisible();

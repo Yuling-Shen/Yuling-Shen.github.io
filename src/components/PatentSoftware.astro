@@ -7,23 +7,36 @@ interface Props {
 }
 
 const { patents } = Astro.props;
+const patentGroups = [...new Set(patents.selected.map(({ year }) => year))].map(
+  (year) => ({
+    year,
+    id: `patent-year-${year}`,
+    patents: patents.selected.filter((patent) => patent.year === year),
+  }),
+);
 ---
 
 <section id="patents-software" aria-labelledby="patents-software-title">
   <SectionHeading title="Patents and Research Software" id="patents-software-title" />
-  <ol class="patent-list">
+  <div class="patent-groups">
     {
-      patents.selected.map((patent) => (
-        <li class="patent">
-          <span class="supporting">{patent.year}</span>
-          <div>
-            <em>{patent.title}</em>.
-            <span class="supporting"> &middot; {patent.number} &middot; {patent.role}</span>
-          </div>
-        </li>
+      patentGroups.map((group) => (
+        <section class="patent-group" aria-labelledby={group.id}>
+          <h3 id={group.id}>{group.year}</h3>
+          <ol class="patent-list">
+            {group.patents.map((patent) => (
+              <li class="patent" data-patent-id={patent.id}>
+                <em>{patent.title}</em>.
+                <span class="supporting">
+                  {" "}&middot; {patent.number} &middot; {patent.role}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </section>
       ))
     }
-  </ol>
+  </div>
   <p class="software-line">
     <a href={patents.software.url}>{patents.software.name}</a>: {patents.software.description}
   </p>

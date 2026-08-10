@@ -23,6 +23,48 @@ const expectedPublicationIds = [
   "chen-2018-space-habitat",
 ] as const;
 
+const expectedPatents = [
+  {
+    id: "zl2026100679354",
+    year: 2026,
+    title:
+      "A spatial swing-angle measurement system, method and device for suspended low-gravity simulation",
+    number: "ZL2026100679354",
+    role: "First inventor",
+  },
+  {
+    id: "zl2025120523857",
+    year: 2026,
+    title: "A Hoberman ring and its design method and applications",
+    number: "ZL2025120523857",
+    role: "First inventor",
+  },
+  {
+    id: "zl2026100679797",
+    year: 2026,
+    title:
+      "A control method, system and electronic device for suspended low-gravity simulation",
+    number: "ZL2026100679797",
+    role: "First inventor",
+  },
+  {
+    id: "zl2024117394697",
+    year: 2025,
+    title:
+      "A data output method and system based on timbre and emotion simulation",
+    number: "ZL2024117394697",
+    role: "Second inventor",
+  },
+  {
+    id: "zl202510534007x",
+    year: 2025,
+    title:
+      "An energy-efficient pressure-control method and system for cleanrooms using dynamic pipe networks and model predictive control",
+    number: "ZL202510534007X",
+    role: "First inventor",
+  },
+] as const;
+
 const expectedPublicationCategories = [
   "Dynamics Modeling",
   "Dynamics Modeling",
@@ -83,22 +125,43 @@ describe("CV-derived site data", () => {
       "soochow-startup-2023",
     ]);
     expect(siteData.patents).not.toHaveProperty("summary");
-    expect(siteData.patents.selected).toHaveLength(3);
+    expect(siteData.patents.selected).toEqual(expectedPatents);
     expect(siteData.teaching.courses).toHaveLength(5);
   });
 
   it("stores the two approved advisor links and no CV path", () => {
     expect(siteData.profile.advisors).toEqual([
       {
-        name: "Manoranjan Majji",
-        url: "https://engineering.tamu.edu/aerospace/profiles/majji-manoranjan.html",
-      },
-      {
         name: "Robert E. Skelton",
         url: "https://bobskelton.github.io/",
       },
+      {
+        name: "Manoranjan Majji",
+        url: "https://engineering.tamu.edu/aerospace/profiles/majji-manoranjan.html",
+      },
     ]);
     expect(siteData.profile).not.toHaveProperty("cvPath");
+  });
+
+  it("rejects reordered patents and an altered inventor role", () => {
+    const reordered = {
+      ...structuredClone(siteData),
+      patents: {
+        ...structuredClone(siteData.patents),
+        selected: expectedPatents.map((patent) => ({ ...patent })).reverse(),
+      },
+    };
+    expect(siteDataSchema.safeParse(reordered).success).toBe(false);
+
+    const alteredRole = {
+      ...structuredClone(siteData),
+      patents: {
+        ...structuredClone(siteData.patents),
+        selected: expectedPatents.map((patent) => ({ ...patent })),
+      },
+    };
+    alteredRole.patents.selected[3].role = "First inventor";
+    expect(siteDataSchema.safeParse(alteredRole).success).toBe(false);
   });
 
   it("locks the profile research areas to the canonical publication order", () => {

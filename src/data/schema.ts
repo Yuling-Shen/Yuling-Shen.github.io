@@ -33,6 +33,48 @@ const expectedFunding = [
   },
 ] as const;
 
+const expectedPatents = [
+  {
+    id: "zl2026100679354",
+    year: 2026,
+    title:
+      "A spatial swing-angle measurement system, method and device for suspended low-gravity simulation",
+    number: "ZL2026100679354",
+    role: "First inventor",
+  },
+  {
+    id: "zl2025120523857",
+    year: 2026,
+    title: "A Hoberman ring and its design method and applications",
+    number: "ZL2025120523857",
+    role: "First inventor",
+  },
+  {
+    id: "zl2026100679797",
+    year: 2026,
+    title:
+      "A control method, system and electronic device for suspended low-gravity simulation",
+    number: "ZL2026100679797",
+    role: "First inventor",
+  },
+  {
+    id: "zl2024117394697",
+    year: 2025,
+    title:
+      "A data output method and system based on timbre and emotion simulation",
+    number: "ZL2024117394697",
+    role: "Second inventor",
+  },
+  {
+    id: "zl202510534007x",
+    year: 2025,
+    title:
+      "An energy-efficient pressure-control method and system for cleanrooms using dynamic pipe networks and model predictive control",
+    number: "ZL202510534007X",
+    role: "First inventor",
+  },
+] as const;
+
 export const publicationCategoryOrder = [
   "Dynamics Modeling",
   "Dynamics Simulation",
@@ -207,14 +249,14 @@ const researchAreasSchema = z.tuple([
 
 const advisorSchema = z.tuple([
   z.object({
+    name: z.literal("Robert E. Skelton"),
+    url: z.literal("https://bobskelton.github.io/"),
+  }).strict(),
+  z.object({
     name: z.literal("Manoranjan Majji"),
     url: z.literal(
       "https://engineering.tamu.edu/aerospace/profiles/majji-manoranjan.html",
     ),
-  }).strict(),
-  z.object({
-    name: z.literal("Robert E. Skelton"),
-    url: z.literal("https://bobskelton.github.io/"),
   }).strict(),
 ]);
 
@@ -338,17 +380,26 @@ export const fundingSchema = z.tuple([
   fundingItemSchema(expectedFunding[3]),
 ]);
 
+const patentItemSchema = <
+  const Patent extends (typeof expectedPatents)[number],
+>(patent: Patent) =>
+  z.object({
+    id: z.literal(patent.id),
+    year: z.literal(patent.year),
+    title: z.literal(patent.title),
+    number: z.literal(patent.number),
+    role: z.literal(patent.role),
+  }).strict();
+
 export const patentsSchema = z.object({
   sourceDate,
-  selected: z.array(
-    z.object({
-      id: z.string().min(1),
-      year: z.literal(2026),
-      title: z.string().min(1),
-      number: z.string().min(1),
-      role: z.literal("First inventor"),
-    }).strict(),
-  ).length(3),
+  selected: z.tuple([
+    patentItemSchema(expectedPatents[0]),
+    patentItemSchema(expectedPatents[1]),
+    patentItemSchema(expectedPatents[2]),
+    patentItemSchema(expectedPatents[3]),
+    patentItemSchema(expectedPatents[4]),
+  ]),
   software: z.object({
     name: z.literal("TsgDMC"),
     description: z.string().min(1),
