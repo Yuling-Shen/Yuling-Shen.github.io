@@ -129,8 +129,7 @@ h1 {
 }
 
 .advisor-line {
-  margin-bottom: 0.8rem;
-  font-size: var(--supporting-size);
+  margin: 0.12rem 0 0;
 }
 
 .profile-links {

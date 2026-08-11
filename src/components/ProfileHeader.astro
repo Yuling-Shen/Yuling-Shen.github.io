@@ -33,21 +33,21 @@ const { profile } = Astro.props;
           <li>
             <strong>{item.degree}</strong>, {item.institution}
             <span class="supporting">{" \u00b7 "}{item.completed}</span>
+            {item.degree === "PhD" && (
+              <p class="advisor-line supporting">
+                <strong>Advisors:</strong>{" "}
+                {profile.advisors.map((advisor, index) => (
+                  <>
+                    {index > 0 && " \u00b7 "}
+                    <a href={advisor.url}>{advisor.name}</a>
+                  </>
+                ))}
+              </p>
+            )}
           </li>
         ))
       }
     </ul>
-    <p class="advisor-line">
-      <strong>Advisors:</strong>{" "}
-      {
-        profile.advisors.map((advisor, index) => (
-          <>
-            {index > 0 && " · "}
-            <a href={advisor.url}>{advisor.name}</a>
-          </>
-        ))
-      }
-    </p>
     <div class="profile-links">
       <a href={`mailto:${profile.email}`}>{profile.email}</a>
       <a href={profile.scholarUrl}>Google Scholar</a>

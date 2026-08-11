@@ -35,7 +35,18 @@ describe("built homepage", () => {
     expect($("a[href^=\"mailto:\"]").attr("href")).toBe(
       "mailto:ylshen07@suda.edu.cn",
     );
-    expect($(".advisor-line > a").map((_, element) => ({
+    const educationItems = $(".education-list > li");
+    const phdEducationItem = educationItems.first();
+    expect(phdEducationItem.children("strong").first().text()).toBe("PhD");
+
+    const advisorLine = phdEducationItem.children(".advisor-line");
+    expect(advisorLine).toHaveLength(1);
+    expect(advisorLine.text().replace(/\s+/g, " ").trim()).toBe(
+      "Advisors: Robert E. Skelton \u00b7 Manoranjan Majji",
+    );
+    expect($(".profile-copy > .advisor-line")).toHaveLength(0);
+    expect(educationItems.slice(1).find(".advisor-line")).toHaveLength(0);
+    expect(advisorLine.children("a").map((_, element) => ({
       name: $(element).text(),
       url: $(element).attr("href"),
     })).get()).toEqual([
