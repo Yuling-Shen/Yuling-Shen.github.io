@@ -37,16 +37,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <PatentList patents={siteData.patents} />
     <ResearchSoftware software={siteData.patents.software} />
     <TeachingSupervision teaching={siteData.teaching} />
-    <section id="awards-service" aria-labelledby="awards-service-title">
-      <SectionHeading title="Awards and Academic Service" id="awards-service-title" />
-      <h3>Recent Awards</h3>
+    <section id="awards" aria-labelledby="awards-title">
+      <SectionHeading title="Awards" id="awards-title" />
       <DatedList
         items={siteData.recognition.awards.map((item) => ({
           date: item.date,
           title: item.title,
         }))}
       />
-      <h3 class="subsection-heading">Academic Service</h3>
+    </section>
+    <section id="academic-service" aria-labelledby="academic-service-title">
+      <SectionHeading title="Academic Service" id="academic-service-title" />
       <DatedList
         items={siteData.recognition.service.map((item) => ({
           date: item.date,

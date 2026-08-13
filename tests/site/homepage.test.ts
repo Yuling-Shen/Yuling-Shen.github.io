@@ -209,10 +209,16 @@ describe("built homepage", () => {
     );
   });
 
-  it("renders teaching, supervision, recognition, media, and footer", () => {
+  it("renders teaching, supervision, separate recognition sections, media, and footer", () => {
     expect($("#teaching-supervision .course")).toHaveLength(5);
     expect($("#teaching-supervision .supervision-item")).toHaveLength(3);
-    expect($("#awards-service .dated-list")).toHaveLength(2);
+    expect($("#awards .dated-item")).toHaveLength(
+      siteData.recognition.awards.length,
+    );
+    expect($("#academic-service .dated-item")).toHaveLength(
+      siteData.recognition.service.length,
+    );
+    expect($("#awards-service")).toHaveLength(0);
     expect($("#media a")).toHaveLength(4);
     expect($("footer").text()).toContain("Last updated: August 2026");
   });
@@ -269,7 +275,23 @@ describe("built homepage", () => {
       "main",
       "footer",
     ]);
-    expect($("main > section").length).toBeGreaterThan(0);
+    expect($("main > section").map((_, element) =>
+      $(element).attr("id"),
+    ).get()).toEqual([
+      "research-areas",
+      "publications",
+      "funding",
+      "patents",
+      "research-software",
+      "teaching-supervision",
+      "awards",
+      "academic-service",
+      "media",
+    ]);
+    expect($("#awards").attr("aria-labelledby")).toBe("awards-title");
+    expect($("#academic-service").attr("aria-labelledby")).toBe(
+      "academic-service-title",
+    );
     expect($("main header, main footer")).toHaveLength(0);
   });
 

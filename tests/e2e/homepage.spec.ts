@@ -21,6 +21,11 @@ test("homepage is accessible and complete at its project viewport", async ({ pag
   await expect(page.locator("#research-software .software-line > a")).toHaveText(
     "TsgDMC",
   );
+  for (const heading of ["Patents", "Research Software", "Awards", "Academic Service"]) {
+    await expect(
+      page.getByRole("heading", { level: 2, name: heading, exact: true }),
+    ).toBeVisible();
+  }
   await expect(page.locator(".advisor-line > a")).toHaveText([
     "Robert E. Skelton",
     "Manoranjan Majji",

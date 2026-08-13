@@ -288,8 +288,7 @@ section > p {
   gap: 1.5rem;
 }
 
-.two-column-details h3,
-#awards-service h3 {
+.two-column-details h3 {
   margin-bottom: 0.3rem;
   color: var(--blue-dark);
   font-size: var(--body-size);
@@ -302,10 +301,6 @@ section > p {
 
 .compact-list li + li {
   margin-top: 0.28rem;
-}
-
-.subsection-heading {
-  margin-top: 1rem;
 }
 
 footer {
