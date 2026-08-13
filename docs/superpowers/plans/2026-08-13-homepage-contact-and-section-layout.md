@@ -265,9 +265,6 @@ await expect(page.locator("#patents .patent-group > h3")).toHaveText([
   "2025",
 ]);
 await expect(page.locator("#patents .patent")).toHaveCount(5);
-await expect(
-  page.getByRole("heading", { level: 2, name: "Research Software" }),
-).toBeVisible();
 await expect(page.locator("#research-software .software-line > a")).toHaveText(
   "TsgDMC",
 );
