@@ -35,6 +35,13 @@ describe("built homepage", () => {
     expect($("a[href^=\"mailto:\"]").attr("href")).toBe(
       "mailto:ylshen07@suda.edu.cn",
     );
+    const profileChildren = $(".profile-copy").children();
+    expect(profileChildren.eq(0).is("h1")).toBe(true);
+    expect(profileChildren.eq(1).is(".profile-links")).toBe(true);
+    expect(profileChildren.eq(2).is(".appointment")).toBe(true);
+    expect(profileChildren.eq(1).find("a").map((_, element) =>
+      $(element).text(),
+    ).get()).toEqual(["ylshen07@suda.edu.cn", "Google Scholar"]);
     const educationItems = $(".education-list > li");
     const phdEducationItem = educationItems.first();
     expect(phdEducationItem.children("strong").first().text()).toBe("PhD");

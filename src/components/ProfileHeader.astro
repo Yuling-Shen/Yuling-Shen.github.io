@@ -20,6 +20,10 @@ const { profile } = Astro.props;
   </div>
   <div class="profile-copy">
     <h1>{profile.name}</h1>
+    <div class="profile-links">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      <a href={profile.scholarUrl}>Google Scholar</a>
+    </div>
     <p class="appointment">
       {profile.role}, {profile.unit}, {profile.institution}, {profile.country}
       <span class="supporting">{" \u00b7 "}{profile.appointmentDates}</span>
@@ -48,9 +52,5 @@ const { profile } = Astro.props;
         ))
       }
     </ul>
-    <div class="profile-links">
-      <a href={`mailto:${profile.email}`}>{profile.email}</a>
-      <a href={profile.scholarUrl}>Google Scholar</a>
-    </div>
   </div>
 </header>
