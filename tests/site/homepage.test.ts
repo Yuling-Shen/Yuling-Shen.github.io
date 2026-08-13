@@ -164,8 +164,16 @@ describe("built homepage", () => {
     expect($("#funding").text()).not.toMatch(/CNY|\d{3},\d{3}/);
   });
 
-  it("renders five patents in two compact year groups", () => {
-    const groups = $("#patents-software .patent-group");
+  it("renders patents and research software as separate sections", () => {
+    expect($("#patents").attr("aria-labelledby")).toBe("patents-title");
+    expect($("#patents-title").text()).toBe("Patents");
+    expect($("#research-software").attr("aria-labelledby")).toBe(
+      "research-software-title",
+    );
+    expect($("#research-software-title").text()).toBe("Research Software");
+    expect($("#patents-software")).toHaveLength(0);
+
+    const groups = $("#patents .patent-group");
     expect(groups).toHaveLength(2);
     expect(groups.map((_, element) => $(element).find("h3").text()).get()).toEqual([
       "2026",
@@ -176,26 +184,27 @@ describe("built homepage", () => {
     expect(groups.map((_, element) => $(element).find(".patent").length).get())
       .toEqual([3, 2]);
 
-    expect($("#patents-software .patent").map((_, element) =>
+    expect($("#patents .patent").map((_, element) =>
       $(element).attr("data-patent-id"),
     ).get()).toEqual(siteData.patents.selected.map(({ id }) => id));
 
-    const patentText = $("#patents-software").text();
+    const patentText = $("#patents").text();
     for (const patent of siteData.patents.selected) {
       expect(patentText).toContain(patent.title);
       expect(patentText).toContain(patent.number);
     }
-    expect($("#patents-software .patent").filter((_, element) =>
+    expect($("#patents .patent").filter((_, element) =>
       $(element).text().includes("First inventor"),
     )).toHaveLength(4);
-    expect($("#patents-software .patent").filter((_, element) =>
+    expect($("#patents .patent").filter((_, element) =>
       $(element).text().includes("Second inventor"),
     )).toHaveLength(1);
     expect(patentText).not.toContain(
       "Five granted Chinese invention patents; first inventor on four and second inventor on one.",
     );
-    expect($("#patents-software .software-line a").text()).toBe("TsgDMC");
-    expect($("#patents-software .software-line a").attr("href")).toBe(
+    expect($("#patents .software-line")).toHaveLength(0);
+    expect($("#research-software .software-line a").text()).toBe("TsgDMC");
+    expect($("#research-software .software-line a").attr("href")).toBe(
       siteData.patents.software.url,
     );
   });

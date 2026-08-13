@@ -16,8 +16,8 @@ const patentGroups = [...new Set(patents.selected.map(({ year }) => year))].map(
 );
 ---
 
-<section id="patents-software" aria-labelledby="patents-software-title">
-  <SectionHeading title="Patents and Research Software" id="patents-software-title" />
+<section id="patents" aria-labelledby="patents-title">
+  <SectionHeading title="Patents" id="patents-title" />
   <div class="patent-groups">
     {
       patentGroups.map((group) => (
@@ -37,7 +37,4 @@ const patentGroups = [...new Set(patents.selected.map(({ year }) => year))].map(
       ))
     }
   </div>
-  <p class="software-line">
-    <a href={patents.software.url}>{patents.software.name}</a>: {patents.software.description}
-  </p>
 </section>

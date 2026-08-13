@@ -1,0 +1,17 @@
+---
+import type { Patents } from "../data/schema";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  software: Patents["software"];
+}
+
+const { software } = Astro.props;
+---
+
+<section id="research-software" aria-labelledby="research-software-title">
+  <SectionHeading title="Research Software" id="research-software-title" />
+  <p class="software-line">
+    <a href={software.url}>{software.name}</a>: {software.description}
+  </p>
+</section>

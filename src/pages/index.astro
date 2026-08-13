@@ -1,9 +1,10 @@
 ---
 import DatedList from "../components/DatedList.astro";
 import MediaLinks from "../components/MediaLinks.astro";
-import PatentSoftware from "../components/PatentSoftware.astro";
+import PatentList from "../components/PatentList.astro";
 import ProfileHeader from "../components/ProfileHeader.astro";
 import PublicationList from "../components/PublicationList.astro";
+import ResearchSoftware from "../components/ResearchSoftware.astro";
 import ResearchAreas from "../components/ResearchAreas.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import SiteFooter from "../components/SiteFooter.astro";
@@ -33,7 +34,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         }))}
       />
     </section>
-    <PatentSoftware patents={siteData.patents} />
+    <PatentList patents={siteData.patents} />
+    <ResearchSoftware software={siteData.patents.software} />
     <TeachingSupervision teaching={siteData.teaching} />
     <section id="awards-service" aria-labelledby="awards-service-title">
       <SectionHeading title="Awards and Academic Service" id="awards-service-title" />
