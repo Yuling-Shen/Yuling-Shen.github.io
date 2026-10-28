@@ -23,6 +23,7 @@ const { profile } = Astro.props;
     <div class="profile-links">
       <a href={`mailto:${profile.email}`}>{profile.email}</a>
       <a href={profile.scholarUrl}>Google Scholar</a>
+      <a href={profile.chineseHomepageUrl} lang="zh-CN" hreflang="zh-CN">中文主页</a>
     </div>
     <p class="appointment">
       {profile.role}, {profile.unit}, {profile.institution}, {profile.country}

@@ -334,6 +334,7 @@ export const profileSchema = z.object({
   country: z.literal("China"),
   email: z.literal("ylshen07@suda.edu.cn"),
   scholarUrl: externalUrl,
+  chineseHomepageUrl: externalUrl,
   advisors: advisorSchema,
   lastUpdated: z.literal("August 2026"),
   education: z.array(

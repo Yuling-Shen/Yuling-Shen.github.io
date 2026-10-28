@@ -41,7 +41,10 @@ describe("built homepage", () => {
     expect(profileChildren.eq(2).is(".appointment")).toBe(true);
     expect(profileChildren.eq(1).find("a").map((_, element) =>
       $(element).text(),
-    ).get()).toEqual(["ylshen07@suda.edu.cn", "Google Scholar"]);
+    ).get()).toEqual(["ylshen07@suda.edu.cn", "Google Scholar", "中文主页"]);
+    expect(profileChildren.eq(1).find("a[hreflang='zh-CN']").attr("href")).toBe(
+      "https://web.suda.edu.cn/ylshen07/",
+    );
     const educationItems = $(".education-list > li");
     const phdEducationItem = educationItems.first();
     expect(phdEducationItem.children("strong").first().text()).toBe("PhD");
@@ -239,6 +242,7 @@ describe("built homepage", () => {
     expect($(".profile-links a").map((_, element) => $(element).text()).get()).toEqual([
       "ylshen07@suda.edu.cn",
       "Google Scholar",
+      "中文主页",
     ]);
     expect($("a[href*='/cv/'], a[href$='.pdf']")).toHaveLength(0);
     expect($("link[rel='stylesheet']").attr("href")).toBe(
