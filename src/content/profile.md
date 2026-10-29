@@ -1,1 +1,1 @@
-Data-driven modeling, simulation, and control of tensegrity, deployable, and morphing structures.
+Modeling, simulation, control, and design of deployable and morphing structures, with a focus on tensegrity systems.
